@@ -29,7 +29,7 @@
 <script>
     const width = document.getElementById('width');
     const length = document.getElementById('length');
-    const ans = document.querySelector('p');
+    const area = document.querySelector('p');
     const calculateButton = document.getElementById('calc');
     const clearButton = document.getElementById('clear');
 
@@ -47,16 +47,16 @@
         let sidel = +length.value;
 
         if (checkIsArea(sidew, sidel)){
-            ans.textContent = `The area of this rectangle is ${ans}.`
+            area.textContent = `The area of this rectangle is ${area}.`
             return;
         }
-        ans.textContent = 'Cannot Calculate??  Try Again.'
+        area.textContent = 'Cannot Calculate??  Try Again.'
     })
 
     clearButton.addEventListener('click', function(e){
         width.value = ""
         length.value = ""
-        ans.textContent = "";
+        area.textContent = "";
     })
 </script>
 </body>
