@@ -38,6 +38,36 @@
     const ans = document.querySelector('p');
     const calculateButton = document.getElementById('calc');
     const clearButton = document.getElementById('clear');
+
+    function checkIsTri(num1, num2, num3){
+        let sideAB = (num1 + num2) > num3;
+        let sideAC = (num1 + num3) > num2;
+        let sideBC = (num2 +num3) > num1;
+
+        if (sideAB && sideAC && sideBC){
+            return true;
+        }
+        return false;
+    }
+
+    calculateButton.addEventListener('click', function(e){
+      let sideA = +a.value;
+      let sideB = +b.value;
+      let sideC = +c.value;
+
+      if (checkIsTri(sideA, sideB, sideC)){
+          ans.textContent = 'Yes, these numbers do make a valid triangle'
+          return;
+      }
+      ans.textContent = 'These numbers do not make a valid triangle'
+    })
+
+    clearButton.addEventListener('click', function(e){
+        a.value = ""
+        b.value = ""
+        c.value = ""
+        ans.textContent = "";
+    })
 </script>
 </body>
 </html>
