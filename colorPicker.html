@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Picker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .red{
+            background-color:red;
+        }
+        .green{
+            background-color:green;
+        }
+        .blue{
+            background-color:blue;
+        }
+        .yellow{
+            background-color:yellow;
+        }
+        .brown{
+            background-color:brown;
+        }
+        .lime{
+            background-color:lime;
+        }
+        .pink{
+            background-color:pink;
+        }
+        .teal{
+            background-color:teal;
+        }
+        .purple{
+            background-color:purple;
+        }
+        .mint{
+            background-color:mintcream;
+        }
+        .tan{
+            background-color:burlywood;
+        }
+        .skyblue{
+            background-color:skyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Quis imperdiet massa tincidunt nunc. Sit amet volutpat consequat mauris nunc. At risus viverra adipiscing at in tellus integer.
+            Pellentesque id nibh tortor id aliquet lectus proin. Scelerisque viverra mauris in aliquam. Phasellus faucibus scelerisque eleifend donec.
+            Mollis aliquam ut porttitor leo. Erat velit scelerisque in dictum non consectetur a. Sit amet tellus cras adipiscing enim.
+            Morbi tempus iaculis urna id volutpat lacus. Malesuada pellentesque elit eget gravida cum. Sit amet purus gravida quis blandit.
+            Duis ultricies lacus sed turpis tincidunt id. Egestas tellus rutrum tellus pellentesque eu tincidunt.
+            Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. At ultrices mi tempus imperdiet.</p>
+
+        <div class="row">
+            <h3>BG</h3>
+            <button id="1">RED</button>
+            <button id="2">GREEN</button>
+            <button id="3">BLUE</button>
+            <button id="4">YELLOW</button>
+            <button id="5">BROWN</button>
+            <button id="6">LIME</button>
+        </div>
+        <div class="row">
+            <h3>Text</h3>
+            <button id="7">PINK</button>
+            <button id="8">TEAL</button>
+            <button id="9">PURPLE</button>
+            <button id="10">MINT</button>
+            <button id="11">TAN</button>
+            <button id="12">SKYBLUE</button>
+        </div>
+        <button id="clear">CLEAR</button>
+    </div>
+    <script>
+        const content = document.querySelector('.content');
+        const red = document.getElementById('1')
+        const green = document.getElementById('2')
+        const blue = document.getElementById('3')
+        const yellow = document.getElementById('4')
+        const brown = document.getElementById('5')
+        const lime = document.getElementById('6')
+
+        const pink = document.getElementById('7')
+        const teal = document.getElementById('8')
+        const purple = document.getElementById('9')
+        const mint = document.getElementById('10')
+        const tan = document.getElementById('11')
+        const skyblue = document.getElementById('12')
+
+        const clearButton = document.getElementById('clear')
+
+        red.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('red');
+        })
+        green.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('green');
+        })
+        blue.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('blue');
+        })
+        yellow.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('yellow');
+        })
+        brown.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('brown');
+        })
+        lime.addEventListener('click', function(e){
+            removeBGColor()
+            content.classList.add('lime');
+        })
+
+
+        pink.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('pink');
+        })
+        teal.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('teal');
+        })
+        purple.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('purple');
+        })
+        mint.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('mint');
+        })
+        tan.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('tan');
+        })
+        skyblue.addEventListener('click', function(e){
+            removeTextColor()
+            content.classList.add('skyblue');
+        })
+
+        function removeBGColor(){
+            content.classList.remove('red')
+            content.classList.remove('green')
+            content.classList.remove('blue')
+            content.classList.remove('yellow')
+            content.classList.remove('brown')
+            content.classList.remove('lime')
+        }
+
+        function removeTextColor(){
+            content.classList.remove('pink')
+            content.classList.remove('teal')
+            content.classList.remove('purple')
+            content.classList.remove('mint')
+            content.classList.remove('tan')
+            content.classList.remove('skyblue')
+        }
+
+        clearButton.addEventListener('click', function(e){
+            removeBGColor();
+            removeTextColor()
+        })
+    </script>
+</div>
+</body>
+</html>
