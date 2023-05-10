@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avatar Picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+
+        <p>PICK YOUR AVATAR</p>
+
+        <div class="row">
+            <button id="avatar1">Sonic</button>
+            <button id="avatar2">Zelda</button>
+            <button id="avatar3">Princess Peach</button>
+        </div>
+
+        <div class="row">
+            <button id="avatar4"></button>
+            <button id="avatar5">FASD</button>
+            <button id="avatar6">GASD</button>
+        </div>
+        <button id="clear">CLEAR</button>
+        <br>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    const avatar1 = document.getElementById('img')
+    const avatar2 = document.getElementById('img')
+    const avatar3 = document.getElementById('img')
+    const avatar4 = document.getElementById('img')
+    const avatar5 = document.getElementById('img')
+    const avatar6 = document.getElementById('img')
+    const clear = document.getElementById('clear')
+
+    avatar1.addEventListener('change', function(e){
+        picture.src='https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg'
+    })
+
+    avatar2.addEventListener('change', function(e){
+    })
+
+    avatar3.addEventListener('change', function(e){
+    })
+
+    avatar4.addEventListener('change', function(e){
+    })
+
+    avatar5.addEventListener('change', function(e){
+    })
+
+    avatar6.addEventListener('change', function(e){
+    })
+
+    clear.addEventListener('click', function(e){
+        content.style.backgroundColor = 'white';
+        bg.value ='#FFFFFF'
+        content.style.color ='black';
+        txt.value ='#000000'
+    })
+</script>
+
+</body>
+</html>
