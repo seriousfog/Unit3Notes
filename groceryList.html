@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>TO BUY:</h3>
+        <div class="row">
+            <div>
+                <label for="list">Item</label>
+                <input type="text" id="list" name="list" style="width: 150px;">
+            </div>
+        </div>
+        <button id="add">Add to List</button>
+        <div class="text">
+        </div>
+        <p></p>
+    </div>
+</div>
+    <script>
+        const text = document.querySelector('.text');
+        const list = document.getElementById('list');
+        const add = document.getElementById('add')
+
+        add.addEventListener('click', function(e) {
+            listAdd = list.value
+
+            const message = document.createElement('h3');
+            message.innerHTML = `- ${listAdd}`;
+            text.insertAdjacentElement('afterbegin', message);
+
+            message.addEventListener('click', function(){
+                message.remove()
+            })
+            list.value = "";
+        });
+
+        const unwantedElement = document.querySelector('click', h3)
+        unwantedElement.remove()
+    </script>
+</body>
+</html>
