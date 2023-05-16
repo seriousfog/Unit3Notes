@@ -15,24 +15,33 @@
 <script>
     const content = document.querySelector('.content');
 
-    content.innerHTML = '<h1>I love Zelda</h1><h4>But I hate tears of kingdom</h4>'
+    content.innerHTML = '<h1 class="gone">I love Zelda</h1><h4>But I Love Pokemon More</h4>'
 
     const food = document.createElement('h1')
     food.innerHTML = 'I Love Pizza';
-    content.insertAdjacentText('afterbegin', food)
+    content.insertAdjacentElement('afterend', food);
 
     const zelda = document.createElement('h1');
-    const love = document.createElement('h1')
-    const hate = document.createElement('h1')
-    const despise = document.createElement('h1')
     zelda.innerHTML = 'I Love Zelda'
-    love.innerHTML = 'I Love Mario'
-    hate.innerHTML = 'I Hate Luigi'
-    despise.innerHTML = 'I despise bugs'
     content.appendChild(zelda)
+
+    const love = document.createElement('h1')
+    love.innerHTML = 'I Love Mario'
     content.appendChild(love)
+
+    const hate = document.createElement('h1')
+    hate.innerHTML = 'I Hate Luigi'
     content.appendChild(hate)
+
+    const despise = document.createElement('h1')
+    despise.innerHTML = 'I Despise Bugs'
     content.appendChild(despise)
+
+    const unwantedElement = document.querySelector('h1')
+    unwantedElement.remove()
+
+    const unwantedElement2 = document.querySelector('.gone')
+    unwantedElement2.remove()
 </script>
 </body>
 </html>
