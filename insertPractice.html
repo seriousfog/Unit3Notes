@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Remove Elements</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+            <h3>How do you jump?</h3>
+            <h4>You just do!</h4>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+
+    content.innerHTML = '<h1>I love Zelda</h1><h4>But I hate tears of kingdom</h4>'
+
+    const food = document.createElement('h1')
+    food.innerHTML = 'I Love Pizza';
+    content.insertAdjacentText('afterbegin', food)
+
+    const zelda = document.createElement('h1');
+    const love = document.createElement('h1')
+    const hate = document.createElement('h1')
+    const despise = document.createElement('h1')
+    zelda.innerHTML = 'I Love Zelda'
+    love.innerHTML = 'I Love Mario'
+    hate.innerHTML = 'I Hate Luigi'
+    despise.innerHTML = 'I despise bugs'
+    content.appendChild(zelda)
+    content.appendChild(love)
+    content.appendChild(hate)
+    content.appendChild(despise)
+</script>
+</body>
+</html>
