@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Clicker</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="row">
+            <div class="profile">
+                <h1 id="profile">Ralts</h1>
+
+        <div class="row">
+            <div class="ongoingscore">
+                <h2 id="ongoingscore">0</h2>
+            </div>
+            <p></p> <p></p>
+            <button class="button" id="levelup">Level Up! +1</button>
+        </div>
+        <img id="picture" src="https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png">
+
+<h2 class="shop">Shop!</h2>
+    <div class="" id="2xboost">
+    <label class="boosting" for="2x">Times two boost!</label>
+    <input id="2x" type="checkbox">
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const content = document.querySelector('.content');
+    const levelup = document.getElementById('levelup');
+    const ongoingscore = document.querySelector('.scoreplace');
+    const picture = document.getElementById('picture');
+    const profile = document.querySelector('.profile');
+    let hiddenshop = document.querySelector('.hidden');
+    let x2boost = document.getElementById('x2boost');
+    let score = document.getElementById('score');
+
+    score = 0;
+    levelup.addEventListener('click', function (e) {
+        score++;
+        ongoingscore.innerHTML = `<h4 id="score">${score}</h4>`;
+
+        if (score == 200) {
+            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png";
+            profile.innerHTML = `<h1 id="profile">Kirilia:</h1>`;
+        }
+        if (score == 1000) {
+            profile.innerHTML = `<h1 id="profile">GARDEVOIR:</h1>`;
+            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/f/f8/0282Gardevoir.png/250px-0282Gardevoir.png";
+        }
+        if (score == 2500) {
+            profile.innerHTML = `<h1 id="profile">MEGA GARDEVOIR:</h1>`;
+            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/3/3d/0282Gardevoir-Mega.png/110px-0282Gardevoir-Mega.png";
+        }
+        if (score == 7777) {
+            content.innerHTML = `<h1>You Caught Em ALl!</h1>`;
+        }
+        if (score == 50) {
+            hiddenshop = document.getElementById("x2boost").classList.add = "hidden"
+        }
+    })
+
+</script>
+</body>
+</html>

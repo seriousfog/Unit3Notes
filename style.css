@@ -75,3 +75,22 @@ section header{
     justify-content: center;
     align-items: center;
 }
+
+.button{
+    width:100px;
+    length:50px;
+}
+
+.shop{
+    font-family:"Book Antiqua"
+}
+
+.boosting{
+    font-size:25px;
+    font-family:"Book Antiqua"
+}
+
+.profile{
+    font-size:20px;
+    font-family:"Book Antiqua"
+}
