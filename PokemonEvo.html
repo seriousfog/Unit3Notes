@@ -17,22 +17,27 @@
     <div class="content">
         <div class="row">
             <div class="avatar">
-                <h1 id="pokemon">Ralts</h1>
+                <h1 id="pokemon">First Evolution, Ralts</h1>
 
         <div class="row">
             <div class="ongoingscore">
                 <h2 id="ongoingscore">0</h2>
             </div>
             <p></p> <p></p>
-            <button class="button" id="levelup">Level Up! +1</button>
-        </div>
-        <img id="picture" src="https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png">
 
-<h2 class="shop">Shop!</h2>
-    <div class="" id="xx2boost">
-    <label class="boosting" for="x2boost">Times two boost!</label>
+            <button class="button" id="levelup">Click to Evolve</button>
+        </div>
+
+                    <img id="picture" src="https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png">
+
+<h2 class="shop" >Open Shop!</h2>
+    <div class="" id="shopboost">
+    <label class="boosting" for="shopboost">x2 boost!(click)</label>
+        <p></p>
     <input id="x2boost" type="checkbox">
     </div>
+                <p></p>
+                <button id="clear">CLEAR</button>
             </div>
         </div>
     </div>
@@ -42,17 +47,47 @@
     const content = document.querySelector('.content');
     const avatar = document.querySelector('.avatar');
     const ongoingscore = document.querySelector('.ongoingscore');
+    let hideshop = document.querySelector('.hidden');
 
-    const levelup = document.getElementById('levelup');
-    const picture = document.getElementById('picture');
-
+    const click = document.getElementById('levelup');
+    const picture = document.getElementById('avatar');
+    let score = document.getElementById('score');
+    const clear = document.getElementById('clear')
 
     score = 0;
 
-        if (score == 200) {
-            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png";
-            profile.innerHTML = `<h1 id="pokemon">Kirilia:</h1>`;
+    click.addEventListener('click', function (e) {
+        score++;
+        ongoingscore.innerHTML = `<h2>${score}</h2>`
+
+        if (score >= 16) {
+            avatar.innerHTML='<h1 id="pokemon">Second Evolution, Kirlia</h1>'
+            picture.src="https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png"
         }
+
+        if (score >= 36) {
+            avatar.innerHTML='<h1 id="pokemon">Third Evolution, GARDEVOIR</h1>'
+            picture.src="https://archives.bulbagarden.net/media/upload/thumb/f/f8/0282Gardevoir.png/250px-0282Gardevoir.png"
+        }
+
+        if (score >= 90) {
+            avatar.innerHTML='<h1 id="pokemon">MEGA GARDEVOIR</h1>'
+            picture.src="https://archives.bulbagarden.net/media/upload/thumb/3/3d/0282Gardevoir-Mega.png/110px-0282Gardevoir-Mega.png";
+        }
+
+        if (score >= 250) {
+            content.innerHTML='<h1>You Caught Em ALl!</h1>'
+        }
+
+        if (score >= 22) {
+            hideshop=document.getElementById("x2boost").classList.add = "hideshop"
+        }
+    })
+
+    clear.addEventListener('click', function(e){
+        score = 0;
+        avatar.innerHTML = '<h1 id="pokemon">First Evolution, Ralts</h1'
+        picture.src = "https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png"
     })
 </script>
 </body>

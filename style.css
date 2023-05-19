@@ -59,7 +59,7 @@ section header{
 
 
 .container{
-    max-width: 1300px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
@@ -92,5 +92,8 @@ section header{
 
 .profile{
     font-size:20px;
+    font-family:"Book Antiqua"
+}
+.avatar{
     font-family:"Book Antiqua"
 }
