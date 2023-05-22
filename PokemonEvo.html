@@ -7,6 +7,9 @@
         .hidden {
             display: none;
         }
+        .unhidden {
+            display: inline-block;
+        }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,24 +20,25 @@
     <div class="content">
         <div class="row">
             <div class="avatar">
-                <h1 id="pokemon">First Evolution, Ralts</h1>
+                <h1 id="pokemon">Pokemon</h1>
 
         <div class="row">
             <div class="ongoingscore">
                 <h2 id="ongoingscore">0</h2>
             </div>
-            <p></p> <p></p>
+            <p></p>
 
             <button class="button" id="levelup">Click to Evolve</button>
         </div>
-
                     <img id="picture" src="https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png">
 
-<h2 class="shop" >Open Shop!</h2>
     <div class="" id="shopboost">
-    <label class="boosting" for="shopboost">x2 boost!(click)</label>
+    <label class="boosting" for="shopboost">Boost below when you get more points!</label>
         <p></p>
-    <input id="x2boost" type="checkbox">
+        <div class="row">
+            <button class="button" id="shop">!!!</button>
+            <h2 class="shopname" >Open Shop!</h2>
+        </div>
     </div>
                 <p></p>
                 <button id="clear">CLEAR</button>
@@ -45,50 +49,49 @@
 
 <script>
     const content = document.querySelector('.content');
-    const avatar = document.querySelector('.avatar');
     const ongoingscore = document.querySelector('.ongoingscore');
     let hideshop = document.querySelector('.hidden');
 
     const click = document.getElementById('levelup');
-    const picture = document.getElementById('avatar');
+    let picture = document.getElementById('picture');
     let score = document.getElementById('score');
     const clear = document.getElementById('clear')
 
-    score = 0;
 
+    score = 0;
     click.addEventListener('click', function (e) {
         score++;
         ongoingscore.innerHTML = `<h2>${score}</h2>`
 
-        if (score >= 16) {
-            avatar.innerHTML='<h1 id="pokemon">Second Evolution, Kirlia</h1>'
-            picture.src="https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png"
-        }
+            if (score >= 100) {
+                pokemon.innerHTML = '<h2>You Caught Em All!</h2>'
+                picture.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAolBMVEX///8AAAD/HBzfGBjf399zc3NzDQ3j4+NTU1Po6OjoGRnc3NzExMS9vb2ioqKrq6uYmJhMTExmCwtmZmbx8fG0tLRGRkYwMDCFhYXV1dXPz889PT35+fmRkZEcHBzvGhpdXV0nJydTDAxKDQ2YFRUSEhJhDg4jBgYdCgpBDQ1cEREvCwsACQl1FBSpFxfWHBy9GxuMEhI3CQkRBATEFxeAExMqTM00AAAEg0lEQVRoge2ZbWOaMBDHa8EiCFE7UFqgYlvsajf7sO77f7UN7gJJuARifdn/O+XyI1wul+RycfGtb51dXpiwZVEsWRJ65+T6yXQ3kbSbJv45yG6RTUhlhfs1cp5saDJok+Sns9mdCV3rjp2IT4bIoOQE9Lzn6p/P94fD4eHll+r8uS27kNr/+n183V6its7b+4v0uLBCx2uh6cfj62VPzvEgmKzj8ex51bU7EOSm/8Hre2dV3Yxlh12jvUOjG+8Ewfuf1jIcx150DtH0mrvGCZyr1ngxht1F4KMR3dCd4PPJIiajNvLM3eZ0x/nNW0RD7Dm3fNgOs4EePPI2AwEfc7vrMeh6VGv6kbcyR+TMjs3pb9hsZmIvbdmXl4FEX+rZHprcj2fjoLae0a9SK7QYNZaSY5zgLzRd6dg8CkfEYK/rjvNgjsdq5Nwhu+68QuuKZuO0f7Fk867zcKfTAC6Xn9Zw7Lrz0bTfGDy+t2a3Xn/Te3110mg2CtAxz7qA8U8Ica6t3PX+fokNedw57p+fnp73R2L9QLgDSyvrwWHVfNKi7yet7nt47hdY+NYar7xr2MJySZlxv3zSfomMw3mYKDrQfgleyHhJm3//0OwHlf1/LaHh8IWpAp+RHQLxlaZkYchK/CEniUCKFzWtQ4sjxcakMUNPetSE4HAHnsns2BCI++bRtDOeNn9IU3krO11e7m4AHhDsoHkiTTvou5T1ORyGXt5/YbBQHYc1RlrY530fBqDtFREumG6vCH0QQ9R0/UO0ukZBellQcK2UJM2szIeslWkxdOhgVnBlHxgNmMvwIbcoic7OLQBfTwk1q5+yADTzOROtfqCoD4XvVHOC8F4iFKXu+SiAy0MEk+gHBQd7KUfDJBKnYT53a3m3AJcnEUz/jIJflOqLp/2exC7AMYyU3S78SR6Hccu+wqM+T1ySo3yE4wlTIUDKvSW7zs+kMxZFjG+y5f0swn14qqbclGjRim9QBSntXex5RQZGaHA6d7ugUjHA8cTJpR4bMYZ0JZpUZqvncRxPP9VQYGvR33Lwrs069Kx3sOLjuWue97YWOKPJXSTIY2W222UlIw4PciD2exjT7pKV06UbnEL+mozyWivNJ40QeMXDmgF1csFHdKibhcNZGj5+Y4xGg2LJ4/SwYU4fVX2QhB2/M7avtONhVCzFuObAxRcv4xmbkDQ59aWLFT3/zGpCxXMn+lABeUNvJwQx7vGKm6HEyxdei3j0xCjUp49apS3dn4vs0mgb86LfyGJb/J/teZxdDQQaH5hx4Z7X7u4Ks4M177aoOB2yvGii0I/aUvWIr233gZvBAnDtkm4ZGVWO7naZqbE4nrueH23s2GK5tTKEVu75t8LaOjIC5ELxUjMtYjcSVr7KooYei5uJkrqZCFPxNmNll+yWE1FZEfkxviKPbxZT6amp4EfLXU8UbVZlWc6y3iXJ+pQrnaHjA3rbJsuJYrsh9M6YqczKI831FiiLvnAJVctb6q7Plme5APSTVLlF26Tnufhr3xAmC1YUbJGEZ+V+61ugf/ewSUSk3AfcAAAAAElFTkSuQmCC";
+            } else if (score >= 42) {
+                picture.src = "https://img.pokemondb.net/artwork/avif/gardevoir-mega.avif";
+            } else if (score >= 36) {
+                picture.src = "https://archives.bulbagarden.net/media/upload/thumb/f/f8/0282Gardevoir.png/250px-0282Gardevoir.png"
+            } else if (score >= 16) {
+                picture.src = "https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png"
+            } else if (score >= 17) {
+                hideshop = document.getElementById("shopboost").classList.add = "hideshop"
+            }
+        })
 
-        if (score >= 36) {
-            avatar.innerHTML='<h1 id="pokemon">Third Evolution, GARDEVOIR</h1>'
-            picture.src="https://archives.bulbagarden.net/media/upload/thumb/f/f8/0282Gardevoir.png/250px-0282Gardevoir.png"
-        }
 
-        if (score >= 90) {
-            avatar.innerHTML='<h1 id="pokemon">MEGA GARDEVOIR</h1>'
-            picture.src="https://archives.bulbagarden.net/media/upload/thumb/3/3d/0282Gardevoir-Mega.png/110px-0282Gardevoir-Mega.png";
-        }
-
-        if (score >= 250) {
-            content.innerHTML='<h1>You Caught Em ALl!</h1>'
-        }
-
-        if (score >= 22) {
-            hideshop=document.getElementById("x2boost").classList.add = "hideshop"
-        }
+        clear.addEventListener('click', function (e) {
+            pokemon.innerHTML = '<h1 id="pokemon">Pokemon</h1'
+            score = -0;
+            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png"
+        })
+    if (score >= 17) {
+        hideshop = document.getElementById("shop", "shopname").className = "unhidden";
+    } else if (score <= 16) {
+        hideshop = document.getElementById("shop", "shopname").className = "hidden";
+    }
+    hideshop.addEventListener('click', function (e) {
+        score -= 5;
     })
 
-    clear.addEventListener('click', function(e){
-        score = 0;
-        avatar.innerHTML = '<h1 id="pokemon">First Evolution, Ralts</h1'
-        picture.src = "https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png"
-    })
 </script>
 </body>
 </html>
