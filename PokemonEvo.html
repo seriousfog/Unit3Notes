@@ -20,34 +20,28 @@
     <div class="content">
         <div class="row">
             <div class="avatar">
-                <h2 id="pokemon">Pokemon</h2>
+                <h2 id="pokemon">Pokemon Clicker</h2>
 
         <div class="row">
             <div class="ongoingscore">
-                <h2 id="ongoingscore">EXP: 0</h2>
+                <h2  id="clickscoring" id="ongoingscore">EXP: 0</h2>
             </div>
             <p></p>
 
-            <button class="button" id="levelup">Click to Evolve</button>
+            <button class="button" id="clickbutton">Click to Evolve</button>
         </div>
-                    <img id="picture" src="https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png">
-
+                    <img id="picture" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">
     <div>
         <div class="row">
-            <button class="button" id="shop">!!!</button>
-            <h2 class="shopname" >Open Shop!</h2>
+            <h2 class="shopname" >Shop</h2>
         </div>
         <div class="row">
-            <button class="button" id="x2">x2 Boost (20 EXP)</button>
-        </div>
-        <br>
-        <div class="row">
-            <button class="button" id="x3">x3 Boost (77 EXP)</button>
+            <button class="button" class="clickscoring" id="x2">x2 Boost (75 EXP Needed)</button>
         </div>
     </div>
                 <form>
                 <p></p>
-                <button id="clear">CLEAR</button>
+                <button id="reset">RESET</button>
                 </form>
             </div>
         </div>
@@ -57,45 +51,43 @@
 <script>
     const content = document.querySelector('.content');
     const ongoingscore = document.querySelector('.ongoingscore');
-    let hideshop = document.querySelector('.hidden');
 
-    const click = document.getElementById('levelup');
+    const clickbutton = document.getElementById('clickbutton');
+    const x2boost = document.getElementById('x2')
     let picture = document.getElementById('picture');
-    let score = document.getElementById('score');
-    const clear = document.getElementById('clear')
-
-
     score = 0;
-    click.addEventListener('click', function (e) {
-        score++;
-        ongoingscore.innerHTML = `<h2>EXP: ${score}</h2>`
+    clickscore = 0
 
-            if (score >= 100) {
+        x2boost.addEventListener('click', clickscoringfunction)
+            function clickscoringfunction (){
+
+    if (x2boost == true ) {
+    }
+        score = score + clickscore + 2
+    }
+
+        clickbutton.addEventListener('click', function (e) {
+            score++
+            ongoingscore.innerHTML = `<h2>EXP: ${score}</h2>`
+
+            if (score >= 1250) {
                 pokemon.innerHTML = '<h2>You Caught Em All!</h2>'
                 picture.src = "https://i.gifer.com/5Q10.gif"
-            } else if (score >= 42) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/282_f2.png";
-            } else if (score >= 36) {
-                picture.src = "https://archives.bulbagarden.net/media/upload/thumb/f/f8/0282Gardevoir.png/250px-0282Gardevoir.png"
-            } else if (score >= 16) {
-                picture.src = "https://archives.bulbagarden.net/media/upload/thumb/6/64/0281Kirlia.png/250px-0281Kirlia.png"
+            } else if (score >= 900) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f4.png"
+            } else if (score >= 650) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png"
+            }else if (score >= 500) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f2.png";
+            } else if (score >= 325) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f2.png";
+            } else if (score >= 150) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
+            } else if (score >= 75) {
+                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
             }
         })
 
-
-        clear.addEventListener('click', function (e) {
-            pokemon.innerHTML = '<h2 class="avatar2" id="pokemon">Pokemon</h2'
-            score = -0;
-            picture.src = "https://archives.bulbagarden.net/media/upload/thumb/5/5c/0280Ralts.png/250px-0280Ralts.png"
-        })
-    if (score >= 17) {
-        hideshop = document.getElementById("shop", "shopname").className = "unhidden";
-    } else if (score <= 16) {
-        hideshop = document.getElementById("shop", "shopname").className = "hidden";
-    }
-    hideshop.addEventListener('click', function (e) {
-        score -= 5;
-    })
 
 </script>
 </body>
