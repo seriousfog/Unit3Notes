@@ -13,27 +13,28 @@
         <div class="row">
             <div class="avatar">
                 <h2 id="pokemon">Pokemon Clicker</h2>
+                <bold><h5>Click once below and hold enter for faster clicks!</h5></bold>
+                <div class="row">
+                    <div class="ongoingscore">
+                        <h2  id="clickscoring" id="ongoingscore">EXP: 0</h2>
+                    </div>
+                    <p></p>
 
-        <div class="row">
-            <div class="ongoingscore">
-                <h2  id="clickscoring" id="ongoingscore">EXP: 0</h2>
-            </div>
-            <p></p>
-
-            <button class="button" id="clickbutton">Click to Evolve</button>
-        </div>
-                    <img id="picture" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">
-    <div>
-        <div class="row">
-            <h2 class="shopname" >Shop</h2>
-        </div>
-        <div class="row">
-            <button class="button" class="clickscoring" id="x2">x2 Boost (75 EXP Needed)</button>
-        </div>
-    </div>
+                    <button class="mainbutton" id="clickbutton">Click to Evolve</button>
+                </div>
+                <img id="picture" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">
+                <div>
+                    <div class="row">
+                        <h2 class="shopname" >Shop</h2>
+                    </div>
+                    <div class="row">
+                        <button class="sidebutton" id="x2">ACTIVATE FOR +1 EXP AND X2 PER CLICK (50 EXP Needed)</button>
+                    </div>
+                    <br>
+                </div>
                 <form>
-                <p></p>
-                <button id="reset">RESET</button>
+                    <p></p>
+                    <button id="reset">RESET</button>
                 </form>
             </div>
         </div>
@@ -45,41 +46,38 @@
     const ongoingscore = document.querySelector('.ongoingscore');
 
     const clickbutton = document.getElementById('clickbutton');
-    const x2boost = document.getElementById('x2')
+    const x2 = document.getElementById('x2')
     let picture = document.getElementById('picture');
     score = 0;
     clickscore = 0
 
-        x2boost.addEventListener('click', clickscoringfunction)
-            function clickscoringfunction (){
 
-    if (x2boost == true ) {
+    clickbutton.addEventListener('click', function (e) {
+        score++
+        ongoingscore.innerHTML = `<h2>EXP: ${score}</h2>`
+
+        if (score >= 525) {
+            content.innerHTML = '<h2>You Caught Em All!</h2> <form><button id="reset">RESET</button</form>'
+        } else if (score >= 350) {
+            picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f4.png"
+        } else if (score >= 225) {
+            picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png";
+        } else if (score >= 150) {
+            picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f2.png";
+        } else if (score >= 100) {
+            picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
+        } else if (score >= 25) {
+            picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
+        }
+    })
+    x2.addEventListener('click', clickscoringfunction)
+    function clickscoringfunction () {
+        if ('click' && score >= 50) {
+            clickscore++
+            clickbutton.addEventListener('click', clickscoringfunction)
+            ongoingscore.innerHTML = `<h2>EXP: ${score + clickscore} </h2>`
+        }
     }
-        score = score + clickscore + 2
-    }
-
-        clickbutton.addEventListener('click', function (e) {
-            score++
-            ongoingscore.innerHTML = `<h2>EXP: ${score}</h2>`
-
-            if (score >= 1250) {
-                pokemon.innerHTML = '<h2>You Caught Em All!</h2>'
-                picture.src = "https://i.gifer.com/5Q10.gif"
-            } else if (score >= 900) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f4.png"
-            } else if (score >= 650) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png"
-            }else if (score >= 500) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f2.png";
-            } else if (score >= 325) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f2.png";
-            } else if (score >= 150) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
-            } else if (score >= 75) {
-                picture.src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
-            }
-        })
-
 
 </script>
 </body>
